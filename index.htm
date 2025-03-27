@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Home</title>
-    </head>
-    <body> <h1>Welcome to the home page!</h1>
-        <p>This is the home page of website.</p>
-        <p>Click <a href="about.php">here</a> to go to the about page.</p>
-    </body>
-</html>                                   
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustav Adolfs torg</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        h1 {
+            color: black;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .image-gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gustav Adolfs torg</h1>
+    <div class="image-gallery">
+        <img src="image1.jpg" alt="Bild 1">
+        <img src="image2.jpg" alt="Bild 2">
+        <img src="image3.jpg" alt="Bild 3">
+        <img src="image4.jpg" alt="Bild 4">
+    </div>
+</body>
+</html>
+    
