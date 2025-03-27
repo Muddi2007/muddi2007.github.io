@@ -14,6 +14,28 @@
         h1 {
             color: black;
         }
+        .text-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .text-list li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .text-list a {
+            text-decoration: none;
+            color: blue;
+            cursor: pointer;
+        }
+        .text-list a:hover {
+            text-decoration: underline;
+        }
+        .info {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+        }
         .image-gallery {
             display: flex;
             justify-content: center;
@@ -29,9 +51,29 @@
             border-radius: 8px;
         }
     </style>
+    <script>
+        function toggleInfo(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Gustav Adolfs torg</h1>
+    <ul class="text-list">
+        <li><a href="#" onclick="toggleInfo('history')">Platsens historia</a></li>
+        <div id="history" class="info">Här kan du läsa om platsens historia.</div>
+        <li><a href="#" onclick="toggleInfo('sights')">Sevärdheter</a></li>
+        <div id="sights" class="info">Information om sevärdheter vid torget.</div>
+        <li><a href="#" onclick="toggleInfo('events')">Evenemang</a></li>
+        <div id="events" class="info">Här finns information om kommande evenemang.</div>
+        <li><a href="#" onclick="toggleInfo('restaurants')">Restauranger i närheten</a></li>
+        <div id="restaurants" class="info">Lista över restauranger nära torget.</div>
+    </ul>
     <div class="image-gallery">
         <img src="image1.jpg" alt="Bild 1">
         <img src="image2.jpg" alt="Bild 2">
@@ -40,4 +82,3 @@
     </div>
 </body>
 </html>
-    
