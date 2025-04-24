@@ -1,82 +1,192 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustav Adolfs torg</title>
-    <style>
-        body {
-            background-color: rgb(159, 168, 30);
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 50px;
-        }
-        h1 {
-            color: black;
-        }
-        .text-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-        .text-list li {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-        .text-list a {
-            text-decoration: none;
-            color: blue;
-            cursor: pointer;
-        }
-        .text-list a:hover {
-            text-decoration: underline;
-        }
-        .info {
-            display: none;
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        .image-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .image-gallery img {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            border: 2px solid black;
-            border-radius: 8px;
-        }
-    </style>
-    <script>
-        function toggleInfo(id) {
-            var element = document.getElementById(id);
-            if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gustav Adolfs torg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #a7acb1;
+      font-family: 'Inter', sans-serif;
+      color: #1b0505;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      background: url('/mnt/data/daf44d2a-db4a-4841-a859-f9e85f7298d0.png') center center / cover no-repeat;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: rgb(0, 0, 0);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: 3em;
+      font-weight: 800;
+      z-index: 1;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-top: 50px;
+      color: #444;
+    }
+
+    .text-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px auto;
+      max-width: 700px;
+    }
+
+    .text-list li a {
+      display: inline-block;
+      background-color: #fff;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #0077cc;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-list li a:hover {
+      background-color: #e6f0ff;
+      color: #004488;
+    }
+
+    .info {
+      display: none;
+      background: #ffffff;
+      margin: 15px auto;
+      padding: 20px;
+      max-width: 700px;
+      border-left: 6px solid #0077cc;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    a.map-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #0077cc;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a.map-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function toggleInfo(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </head>
 <body>
+  <div class="hero">
     <h1>Gustav Adolfs torg</h1>
+  </div>
+
+  <main>
     <ul class="text-list">
-        <li><a href="#" onclick="toggleInfo('sights')">Sevärdheter</a></li>
-        <div id="sights" class="info"><b>Närhet till shopping : Gamla begravningsplatsen : Skulpturer och fontäner</b></div>
-        <li><a href="#" onclick="toggleInfo('history')">Platsens historia</a></li>
-        <div id="history" class="info">Torget omges av anmärkningsvärda byggnader som "Rivieran" i fransk nyrenässansstil och "Valhalla Palace" från tidigt 1900-tal, designade av arkitekten Alfred Arwidius.</div>
-        <li><a href="#" onclick="toggleInfo('restaurants')">Restauranger i närheten</a></li>
-        <div id="restaurants" class="info">Lista över restauranger nära torget.</div>
+      <li><a href="#" onclick="toggleInfo('sights')">🏛️ Sevärdheter</a></li>
+      <div id="sights" class="info">
+        <strong>Närhet till shopping</strong><br>Gamla begravningsplatsen, skulpturer och fontäner.
+      </div>
+
+      <li><a href="#" onclick="toggleInfo('history')">📜 Platsens historia</a></li>
+      <div id="history" class="info">
+        <strong>Arkitektur & historia:</strong> Torget omges av anmärkningsvärda byggnader som "Rivieran" i fransk nyrenässansstil och "Valhalla Palace" från tidigt 1900-tal, designade av Alfred Arwidius.
+      </div>
+
+      <li><a href="#" onclick="toggleInfo('restaurants')">🍽️ Restauranger i närheten</a></li>
+      <div id="restaurants" class="info">
+        <ul>
+          <li><a href="#" onclick="toggleInfo('icha')">🍣 Icha Mochi</a></li>
+          <div id="icha" class="info">
+            Modern asiatisk restaurang med sushi och poke bowls.<br>
+            Adress: Gustav Adolfs torg 43<br>
+            <a href="https://ichamochi.se/malmo/" target="_blank">Webbplats</a>
+          </div>
+
+          <li><a href="#" onclick="toggleInfo('bageri')">🥯 Bagericaféet</a></li>
+          <div id="bageri" class="info">
+            Bagels, bakverk och halal-alternativ i avslappnad miljö.<br>
+            Adress: Gustav Adolfs torg 43<br>
+            <a href="https://www.bagericafeet.se/" target="_blank">Webbplats</a>
+          </div>
+
+          <li><a href="#" onclick="toggleInfo('mando')">🥩 Mando Steakhouse</a></li>
+          <div id="mando" class="info">
+            Klassiska kötträtter, känd för plankstek.<br>
+            Adress: Skomakaregatan 4<br>
+            <a href="https://mandosteakhouse.com/" target="_blank">Webbplats</a>
+          </div>
+        </ul>
+      </div>
     </ul>
+
+    <h2>Bilder från Gustav Adolfs torg</h2>
     <div class="image-gallery">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Font%C3%A4nen_Lekande_barn%2C_Malm%C3%B6%2C_Anders_J%C3%B6nsson%2C_1914.jpg/800px-Font%C3%A4nen_Lekande_barn%2C_Malm%C3%B6%2C_Anders_J%C3%B6nsson%2C_1914.jpg" alt="Bild 1">
-        <img src="" alt="Bild 2">  
-        <img src="image3.jpg" alt="Bild 3">
-        <img src="image4.jpg" alt="Bild 4">
+      <img src="bild1.jpg" alt="Torget i dagsljus">
+      <img src="bild2.jpg" alt="Fontän vid torget">
+      <img src="bild3.jpg" alt="Restaurangområde">
+      <img src="bild4.jpg" alt="Kvällsstämning">
     </div>
+
+    <h2>Hitta hit</h2>
+    <a class="map-link" href="https://www.google.com/maps/place/Gustav+Adolfs+torg,+Malm%C3%B6" target="_blank">📍 Öppna i Google Maps</a>
+  </main>
 </body>
 </html>
